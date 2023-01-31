@@ -5,12 +5,10 @@ import { LoginPage } from './pages/login/login.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
 
 const routes: Routes = [
-  { path: '', component: LoginPage },
+  { path: '', pathMatch: 'full', redirectTo: '/login'},
+  { path: 'login', component: LoginPage },
   { path: 'trainer', component: TrainerPage },
-  {
-    path: 'catalogue',
-    component: CataloguePage,
-  },
+  { path: 'catalogue', component: CataloguePage },
 ];
 
 @NgModule({
