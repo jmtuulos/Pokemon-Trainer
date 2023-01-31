@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { LoginPage } from './pages/login/login.page';
 import { TrainerPage } from './pages/trainer/trainer.page';
 import { CataloguePage } from './pages/catalogue/catalogue.page';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, LoginPage, TrainerPage, CataloguePage],
-  imports: [BrowserModule, AppRoutingModule],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
