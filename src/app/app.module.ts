@@ -10,6 +10,7 @@ import { CataloguePage } from './pages/catalogue/catalogue.page';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon
     PokemonListComponent,
     PokemonListItemComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
