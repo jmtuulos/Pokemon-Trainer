@@ -14,6 +14,10 @@ export class LoginFormComponent{
 
   @Output() login: EventEmitter<void> = new EventEmitter
 
+  get loading(): boolean {
+    return this.loginService.loading
+  }
+
   constructor(
     private readonly loginService: LoginService,
     private readonly userService: UserService,
@@ -22,7 +26,7 @@ export class LoginFormComponent{
   public loginSubmit(loginForm: NgForm): void {
 
     const { username } = loginForm.value
-
+    
     this.loginService.login(username)
       .subscribe({
         next: (user: User) => {

@@ -1,0 +1,40 @@
+.center-hor {
+	align-content: center;
+	justify-content: center;
+	align-items: center;
+}
+
+.center-button {
+	justify-content: center;
+	position:sticky;
+}
+
+
+.spinner-img {
+	height: 20vh;
+	width: 20vh;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	animation: loading-spinner-img 7s linear infinite;
+  }
+
+
+  @keyframes loading-spinner-img {
+	0%, 100% {
+	  animation-timing-function: linear;
+	}
+	0% {
+	  transform: rotate(0deg);
+	}
+	50% {
+	  transform: rotate(1800deg);
+	  animation-timing-function: linear;
+	}
+	100% {
+	  transform: rotate(3600deg);
+	}
+  }
