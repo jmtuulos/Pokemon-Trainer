@@ -6,7 +6,7 @@ import { UserService } from '../services/user.service';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuard implements CanActivate {
+export class LoggedInUsersGuard implements CanActivate {
 
   constructor(
     private readonly router: Router,
@@ -16,10 +16,11 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    if (this.userService.user) {
+      if (this.userService.user){
+        this.router.navigateByUrl("/catalogue")
+        return false
+      }
       return true
-    }
-    this.router.navigateByUrl("/login")
-    return false
   }
+
 }

@@ -1,15 +1,25 @@
-<form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
-	<mat-form-field>
-		<!-- <mat-label>Your Trainer</mat-label> -->
-		<input
-			ngModel
-			#username="ngModel"
-			type="text"
-			name="username"
-			id="username"
-			matInput required
-			placeholder="Ash"
-		/>
-	</mat-form-field>
-	<button type="submit" mat-stroked-button>Login</button>
-</form>
+<ng-container *ngIf="!loading; else spinner">
+	<form #loginForm="ngForm" class="center-hor" (ngSubmit)="loginSubmit(loginForm)">
+		<mat-form-field>
+			<input
+				ngModel
+				#username="ngModel"
+				type="text"
+				name="username"
+				id="username"
+				matInput required
+				placeholder="Ash"
+			/>
+		</mat-form-field>
+		<div class="center-button">
+			<button type="submit"
+			mat-raised-button
+			[disabled]="loginForm.form.invalid">
+			Login
+			</button>
+		</div>
+	</form>
+</ng-container>
+<ng-template #spinner>
+	<img class="spinner-img" src="../assets/images/pokeball.png"/>
+</ng-template>
