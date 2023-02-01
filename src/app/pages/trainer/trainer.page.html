@@ -1,1 +1,24 @@
-<p>trainer works!</p>
+<mat-grid-list cols="2">
+  <mat-grid-tile>
+    <!-- <h1>trainer name</h1>
+    <button mat-flat-button color="primary">Catch pokemon</button>
+    <button mat-flat-button color="accent">Log out</button> -->
+
+    <mat-list role="list">
+      <mat-list-item role="listitem"><h1>{{user?.username}}</h1></mat-list-item>
+      <mat-list-item role="listitem"
+        ><button
+          mat-flat-button
+          color="primary"
+          (click)="navigateToCatalogue()"
+        >
+          Catch pokemon
+        </button></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><button mat-stroked-button>Log out</button></mat-list-item
+      >
+    </mat-list>
+  </mat-grid-tile>
+  <mat-grid-tile>List of captured pokemon</mat-grid-tile>
+</mat-grid-list>

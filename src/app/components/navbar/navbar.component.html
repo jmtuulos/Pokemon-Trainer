@@ -4,7 +4,7 @@
       <span *ngIf="user.username !== null">{{ user.username }}</span>
       <span *ngIf="user.username === null">Username</span>
       <span class="example-spacer"></span>
-      <a routerLink="/catalogue">
+      <a routerLink="/catalogue" matTooltip="Go to catalogue page">
         <mat-icon
           class="example-icon"
           aria-hidden="false"
@@ -12,7 +12,7 @@
           >explore</mat-icon
         >
       </a>
-      <a routerLink="/trainer">
+      <a routerLink="/trainer" matTooltip="Go to trainer page">
         <mat-icon
           class="example-icon"
           aria-hidden="false"
