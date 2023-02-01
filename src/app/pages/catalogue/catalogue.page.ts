@@ -11,10 +11,20 @@ export class CataloguePage implements OnInit {
   constructor(private readonly pokemonService: PokemonService) {}
   pokemonList: Pokemon[] = [];
 
+  get pokemon(): Pokemon[] {
+    return this.pokemonService.listOfPokemon;
+  }
+
+  get loading(): boolean {
+    return this.pokemonService.isLoading;
+  }
+
+  get error(): string {
+    return this.pokemonService.error;
+  }
+
   ngOnInit(): void {
-    //this.pokemonService.fetchAllPokemonFromAPI();
     this.pokemonService.fetchPokemonData();
-    console.log(this.pokemonService.listOfPokemon);
     this.pokemonList = this.pokemonService.listOfPokemon;
   }
 }

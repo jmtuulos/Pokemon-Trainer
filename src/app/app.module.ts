@@ -13,7 +13,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { PokemonListItemComponent } from './components/pokemon-list-item/pokemon-list-item.component';
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatListModule } from '@angular/material/list';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -24,6 +30,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
     LoginFormComponent,
     PokemonListComponent,
     PokemonListItemComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,12 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
     MatButtonModule,
     MatInputModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
     MatProgressSpinnerModule,
+    MatGridListModule,
+    MatListModule,
+    MatTooltipModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
