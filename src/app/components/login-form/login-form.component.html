@@ -1,9 +1,15 @@
-<p>login-form works!</p>
-
 <form #loginForm="ngForm" (ngSubmit)="loginSubmit(loginForm)">
-	<fieldset>
-		<label for="username">Username</label>
-		<input type="text" name="username" id="username"/>
-	</fieldset>
-	<button type="submit">Login</button>
+	<mat-form-field>
+		<!-- <mat-label>Your Trainer</mat-label> -->
+		<input
+			ngModel
+			#username="ngModel"
+			type="text"
+			name="username"
+			id="username"
+			matInput required
+			placeholder="Ash"
+		/>
+	</mat-form-field>
+	<button type="submit" mat-stroked-button>Login</button>
 </form>

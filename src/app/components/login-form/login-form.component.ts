@@ -13,8 +13,8 @@ export class LoginFormComponent{
 
   public loginSubmit(loginForm: NgForm): void {
 
-    //username!
     const { username } = loginForm.value
+    
     this.loginService.login(username)
       .subscribe({
         next: (user: User) => {

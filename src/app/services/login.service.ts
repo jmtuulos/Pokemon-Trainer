@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, of, switchMap } from 'rxjs';
+import { map, Observable, of, switchMap, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.models';
 
@@ -20,11 +20,13 @@ export class LoginService {
             return this.createUser(username)
           }
           return of(user)
-        })
+        }),
+        tap((user: User) => {
+          
+        }
       )
   }
-  
-  //Check if user exists
+
   private checkUsername(username: string): Observable<User | undefined> {
     return this.http.get<User[]>(`${apiTrainers}?username=${username}`)
     .pipe(
@@ -32,7 +34,6 @@ export class LoginService {
     )
   }
 
-  //Create user
   private createUser(username: string): Observable<User> {
     const user = {
       username,
