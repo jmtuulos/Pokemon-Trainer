@@ -4,7 +4,8 @@ import { map, Observable, of, switchMap, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.models';
 
-const { apiTrainers, apiTrainersKey } = environment
+
+const { apiTrainers, apiKey } = environment
 
 @Injectable({
   providedIn: 'root'
@@ -20,10 +21,7 @@ export class LoginService {
             return this.createUser(username)
           }
           return of(user)
-        }),
-        tap((user: User) => {
-          
-        }
+        })
       )
   }
 
@@ -42,7 +40,7 @@ export class LoginService {
 
     const headers = new HttpHeaders({
       "Content-Type": "application/json",
-      "x-api-key": apiTrainersKey
+      "x-api-key": apiKey
     })
     return this.http.post<User>(apiTrainers, user, {
       headers
