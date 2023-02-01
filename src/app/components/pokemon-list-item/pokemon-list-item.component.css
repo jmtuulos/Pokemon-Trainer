@@ -1,0 +1,9 @@
+#pokemonImage {
+  border: solid 1px #ccc;
+}
+
+#pokemonListItem {
+  border: solid 1px #ccc;
+  margin-bottom: 20px;
+  padding: 10px;
+}

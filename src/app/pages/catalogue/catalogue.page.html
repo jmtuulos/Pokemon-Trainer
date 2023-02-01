@@ -1,18 +1,5 @@
 <main class="container mx-auto">
-  <p>catalogue works!</p>
-  <ul>
-    <li *ngFor="let pokemon of pokemonList">
-      <div>
-        <img src="{{pokemon.image}}" alt="missing" style="width: 125px" />
-      </div>
-      <p>#{{pokemon.id}} {{pokemon.name}}</p>
-      <button mat-flat-button color="primary" *ngIf="!pokemon.captured">
-        Catch
-      </button>
-      <button mat-flat-button color="accent" *ngIf="pokemon.captured">
-        Caught
-      </button>
-    </li>
-  </ul>
-  <app-pokemon-list></app-pokemon-list>
+  <!-- show while loading pokemon -->
+  <p *ngIf="loading">Loading pokemon</p>
+  <app-pokemon-list [pokemonList]="pokemonList"></app-pokemon-list>
 </main>

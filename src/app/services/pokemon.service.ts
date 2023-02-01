@@ -4,7 +4,7 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, finalize, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { Pokemon } from '../models/pokemon.model';
@@ -30,9 +30,19 @@ export class PokemonService {
   constructor(private readonly http: HttpClient) {}
 
   private _listOfPokemon: Pokemon[] = [];
+  private _loading: boolean = false;
+  private _error: string = '';
 
   get listOfPokemon(): Pokemon[] {
     return this._listOfPokemon;
+  }
+
+  get isLoading(): boolean {
+    return this._loading;
+  }
+
+  get error(): string {
+    return this.error;
   }
 
   public fetchPokemonData(): void {
@@ -43,7 +53,7 @@ export class PokemonService {
       StorageKeys.Pokemon
     );
 
-    if (storedValue !== undefined) {
+    if (storedValue) {
       this._listOfPokemon = storedValue;
     } else {
       this.fetchAllPokemonFromAPI();
@@ -51,18 +61,27 @@ export class PokemonService {
   }
 
   public fetchAllPokemonFromAPI(): void {
-    this.http.get<any>(pokeApiUrl + pokemonEndpoint).subscribe(
-      (data: any) => {
-        this.mapResultsToPokemon(data.results);
-        PokemonStorageUtil.pokemonStorageSave(
-          StorageKeys.Pokemon,
-          this._listOfPokemon
-        );
-      },
-      (error: HttpErrorResponse) => {
-        console.log(error);
-      }
-    );
+    this._loading = true;
+    this.http
+      .get<any>(pokeApiUrl + pokemonEndpoint)
+      .pipe(
+        finalize(() => {
+          this._loading = false;
+        })
+      )
+      .subscribe({
+        next: (data: any) => {
+          this.mapResultsToPokemon(data.results);
+          PokemonStorageUtil.pokemonStorageSave(
+            StorageKeys.Pokemon,
+            this._listOfPokemon
+          );
+        },
+        error: (errorMessage: HttpErrorResponse) => {
+          console.log(errorMessage.message);
+          this._error = errorMessage.message;
+        },
+      });
   }
 
   public mapResultsToPokemon(data: any): void {
