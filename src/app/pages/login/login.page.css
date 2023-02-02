@@ -4,3 +4,14 @@
 	align-items: center;
 	height: 100vh;
 }
+
+.container_row {
+	display: grid;
+}
+
+.header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 5vh;
+}

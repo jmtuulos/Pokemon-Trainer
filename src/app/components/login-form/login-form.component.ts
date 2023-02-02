@@ -26,7 +26,7 @@ export class LoginFormComponent{
   public loginSubmit(loginForm: NgForm): void {
 
     const { username } = loginForm.value
-    
+
     this.loginService.login(username)
       .subscribe({
         next: (user: User) => {
@@ -34,7 +34,6 @@ export class LoginFormComponent{
           this.login.emit()
         },
         error: () => {
-          // handle locally
         }
       })
   }
