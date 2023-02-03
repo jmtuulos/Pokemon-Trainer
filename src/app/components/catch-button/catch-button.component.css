@@ -1,4 +1,4 @@
-.spinner-img {
+/* .spinner-img {
 	position: relative;
 	width: 5%;
 	top: 0;
@@ -19,7 +19,7 @@
 	100% {
 	  transform: rotateY(360deg);
 	}
-  }
+  } */
 
   .pokeball-img {
 	position: relative;
