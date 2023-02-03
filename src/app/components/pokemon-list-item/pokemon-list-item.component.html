@@ -7,11 +7,15 @@
       style="width: 125px"
     />
   </div>
+  <!-- <img class="pokeball-img" src="../assets/images/pokeball.png"/> -->
   <p>#{{ pokemon.id }} {{ pokemon.name }}</p>
-  <button mat-flat-button color="primary" *ngIf="!pokemon.captured">
+  <app-catch-button [pokemonId]="pokemon.id"></app-catch-button>
+  <!-- <button
+  	mat-flat-button color="primary"
+  	*ngIf="!pokemon.captured">
     Catch
   </button>
   <button mat-flat-button color="accent" *ngIf="pokemon.captured">
     Caught
-  </button>
+  </button> -->
 </li>

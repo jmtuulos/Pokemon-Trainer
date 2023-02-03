@@ -20,6 +20,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { CatchButtonComponent } from './components/catch-button/catch-button.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     PokemonListComponent,
     PokemonListItemComponent,
     NavbarComponent,
+    CatchButtonComponent,
   ],
   imports: [
     BrowserModule,
