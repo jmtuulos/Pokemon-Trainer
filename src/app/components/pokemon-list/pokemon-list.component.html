@@ -1,7 +1,15 @@
 <ul id="pokemonList">
   <app-pokemon-list-item
-    *ngFor="let pokemon of pokemonList"
+    *ngFor="let pokemon of activePageDataChunk"
     [pokemon]="pokemon"
   >
   </app-pokemon-list-item>
 </ul>
+
+<mat-paginator
+  [length]="length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  (page)="onPageChanged($event)"
+>
+</mat-paginator>
