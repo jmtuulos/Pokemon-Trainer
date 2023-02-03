@@ -20,5 +20,7 @@
       >
     </mat-list>
   </mat-grid-tile>
-  <mat-grid-tile>List of captured pokemon</mat-grid-tile>
+  <mat-grid-tile>
+    <app-pokemon-list [pokemonList]="pokemons"></app-pokemon-list>
+  </mat-grid-tile>
 </mat-grid-list>
