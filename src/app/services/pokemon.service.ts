@@ -95,4 +95,8 @@ export class PokemonService {
       this.listOfPokemon.push(newPokemon);
     }
   }
+
+  public pokemonById(id: number): Pokemon | undefined {
+    return this._listOfPokemon.find((pokemon: Pokemon) => pokemon.id === id)
+  }
 }
