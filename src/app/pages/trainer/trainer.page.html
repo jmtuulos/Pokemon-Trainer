@@ -1,29 +1,28 @@
-<mat-grid-list cols="2">
-  <mat-grid-tile>
-    <!-- <h1>trainer name</h1>
-    <button mat-flat-button color="primary">Catch pokemon</button>
-    <button mat-flat-button color="accent">Log out</button> -->
-
-    <mat-list role="list">
-      <mat-list-item role="listitem"><h1>{{user?.username}}</h1></mat-list-item>
-      <mat-list-item role="listitem"
-        ><button
-          mat-flat-button
-          color="primary"
-          (click)="navigateToCatalogue()"
+<main class="mx-auto px-10 flex-wrap">
+  <mat-grid-list cols="3">
+    <mat-grid-tile>
+      <mat-list role="list">
+        <mat-list-item role="listitem"><h1>{{user?.username}}</h1></mat-list-item>
+        <mat-list-item role="listitem"
+          ><button
+            mat-flat-button
+            color="primary"
+            (click)="navigateToCatalogue()"
+          >
+            Catch pokemon
+          </button></mat-list-item
         >
-          Catch pokemon
-        </button></mat-list-item
-      >
-      <mat-list-item role="listitem"
-        ><button mat-stroked-button (click)="logOut()">
-          Log out
-        </button></mat-list-item
-      >
-    </mat-list>
-  </mat-grid-tile>
-</mat-grid-list>
-<h1>Captured Pokemon:</h1>
-<div>
-  <app-pokemon-list [pokemonList]="pokemons"></app-pokemon-list>
-</div>
+        <mat-list-item role="listitem"
+          ><button mat-stroked-button (click)="logOut()">
+            Log out
+          </button></mat-list-item
+        >
+      </mat-list>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <div class="mx-auto">
+    <h1>Your collection: </h1>
+    <app-pokemon-list [pokemonList]="pokemons"></app-pokemon-list>
+  </div>
+
+</main>
