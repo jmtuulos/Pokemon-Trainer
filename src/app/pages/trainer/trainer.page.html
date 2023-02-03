@@ -16,7 +16,9 @@
         </button></mat-list-item
       >
       <mat-list-item role="listitem"
-        ><button mat-stroked-button>Log out</button></mat-list-item
+        ><button mat-stroked-button (click)="logOut()">
+          Log out
+        </button></mat-list-item
       >
     </mat-list>
   </mat-grid-tile>

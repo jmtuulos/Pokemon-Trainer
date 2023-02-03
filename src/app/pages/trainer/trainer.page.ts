@@ -31,4 +31,10 @@ export class TrainerPage {
   navigateToCatalogue(): void {
     this.router.navigateByUrl('/catalogue');
   }
+
+  logOut(): void {
+    this.userService.user = undefined;
+    this.userService.logoutUser();
+    this.router.navigateByUrl('/login');
+  }
 }
