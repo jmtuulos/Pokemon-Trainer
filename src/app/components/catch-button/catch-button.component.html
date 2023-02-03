@@ -1,8 +1,7 @@
 <button
-	(click)="onCatchClick()"
-  mat-flat-button color="primary"
-  *ngIf="inCollection"
-	[disabled]="inCollection">
-    {{ inCollection ? 'caught' : 'catch' }}
-</button>
+  (click)="onCatchClick()"
+  mat-flat-button
+  [color]="(inCollection) ? 'warn' : 'primary'">
+    {{ inCollection ? 'release' : 'catch' }}
+  </button>
 
