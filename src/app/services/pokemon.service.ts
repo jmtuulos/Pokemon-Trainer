@@ -11,7 +11,7 @@ import { Pokemon } from '../models/pokemon.model';
 import { PokemonStorageUtil } from '../utils/pokemon-storage.util';
 
 const pokeApiUrl = 'https://pokeapi.co/api/v2';
-const pokemonEndpoint = '/pokemon?limit=2000&offset=0';
+const pokemonEndpoint = '/pokemon?limit=950&offset=0';
 const imgUrl =
   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
 const fileEnding = '.png';
@@ -99,5 +99,9 @@ export class PokemonService {
 
   public pokemonById(id: number): Pokemon | undefined {
     return this._listOfPokemon.find((pokemon: Pokemon) => pokemon.id === id);
+  }
+
+  public removePokemon(): void {
+    PokemonStorageUtil.pokemonStorageRemove(StorageKeys.Pokemon);
   }
 }

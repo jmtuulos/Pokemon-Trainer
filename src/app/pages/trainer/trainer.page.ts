@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { User } from 'src/app/models/user.models';
 import { UserService } from 'src/app/services/user.service';
 import { Router } from '@angular/router';
+import { PokemonService } from 'src/app/services/pokemon.service';
 
 @Component({
   selector: 'app-trainer',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
 export class TrainerPage {
   constructor(
     private readonly userService: UserService,
+    private readonly pokemonService: PokemonService,
     private readonly router: Router
   ) {}
 
@@ -25,6 +27,7 @@ export class TrainerPage {
   logOut(): void {
     this.userService.user = undefined;
     this.userService.logoutUser();
+    this.pokemonService.removePokemon();
     this.router.navigateByUrl('/login');
   }
 }
