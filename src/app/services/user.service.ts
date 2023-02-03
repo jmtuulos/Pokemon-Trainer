@@ -31,15 +31,21 @@ export class UserService {
     if (this._user) {
       return Boolean(
         this.user?.pokemons.find((pokemon: Pokemon) => pokemon.id === pokemonId)
-      );
+      )
     }
-    return false;
+    return false
   }
 
-  // public removeFromCollection(pokemonId: number): void {
-  //   if (this.user) {
-  //     this._user.pokemons = this._user.pokemons
-  //       .filter((pokemon: Pokemon) => pokemon.id !== pokemonId)
-  //   }
-  // }
+  public addToCollection(pokemon: Pokemon): void {
+    if(this._user){
+      this._user.pokemons.push(pokemon)
+    }
+  }
+
+  public removeFromCollection(pokemonId: number): void {
+    if (this._user) {
+      this._user.pokemons = this._user.pokemons
+        .filter((pokemon: Pokemon) => pokemon.id !== pokemonId)
+    }
+  }
 }
