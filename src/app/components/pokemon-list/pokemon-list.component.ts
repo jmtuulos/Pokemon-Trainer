@@ -8,39 +8,16 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./pokemon-list.component.css'],
 })
 export class PokemonListComponent {
-  // MatPaginator Inputs
-  length = 1000;
-  pageSize = 10;
-  pageSizeOptions: number[] = [5, 10, 25, 100];
-
-  // MatPaginator Output
-  //pageEvent: PageEvent;
-
-  _allPokemon: Pokemon[] = [];
-
-  activePageDataChunk: Pokemon[] = [];
+  currentPagesLowValue: number = 0;
+  currentPagesHighValue: number = 10;
 
   @Input() pokemonList: Pokemon[] = [];
 
-  constructor() {
-    this.activePageDataChunk = this.pokemonList.slice(0, this.pageSize);
-  }
-
-  setPageSizeOptions(setPageSizeOptionsInput: string) {
-    this.pageSizeOptions = setPageSizeOptionsInput
-      .split(',')
-      .map((str) => +str);
-  }
+  constructor() {}
 
   onPageChanged(e: PageEvent) {
-    let firstCut = e.pageIndex * e.pageSize;
-    let secondCut = firstCut + e.pageSize;
-    this.activePageDataChunk = this.pokemonList.slice(firstCut, secondCut);
-  }
-
-  ngOnChanges(): void {
-    this._allPokemon = this.pokemonList;
-    this.activePageDataChunk = this._allPokemon.slice(0, this.pageSize);
-    this.length = this.pokemonList.length;
+    this.currentPagesLowValue = e.pageIndex * e.pageSize;
+    this.currentPagesHighValue = this.currentPagesLowValue + e.pageSize;
+    return e;
   }
 }
