@@ -39,9 +39,11 @@ export class CatchPokemonService {
       throw new Error("addToCollection: No pokemon with id: " + pokemonId)
     }
 
-    // if (this.userService.inCollection(pokemonId)) {
-    //   this.userService.removeFromCollection(pokemonId)
-    // }
+    if (this.userService.inCollection(pokemonId)) {
+      this.userService.removeFromCollection(pokemonId)
+    } else {
+      this.userService.addToCollection(newPokemon)
+    }
 
     const headers = new HttpHeaders({
       'Content-type': 'application/json',
@@ -50,7 +52,7 @@ export class CatchPokemonService {
 
     this._loading = true
     return this.http.patch<User>(`${apiTrainers}/${user.id}`,{
-      pokemons: [...user.pokemons, newPokemon]
+      pokemons: [...user.pokemons]
     },{
       headers
     })
