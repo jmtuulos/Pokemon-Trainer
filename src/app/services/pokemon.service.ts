@@ -87,8 +87,8 @@ export class PokemonService {
   public mapResultsToPokemon(data: any): void {
     for (let i = 0; i < data.length; i++) {
       let pokemonUrl = data[i].url;
-      const meh = pokemonUrl.split('/');
-      let id = meh[meh.length - 2];
+      const imageUrlSplit = pokemonUrl.split('/');
+      let id = imageUrlSplit[imageUrlSplit.length - 2];
       let name = data[i].name;
       let image: string = imgUrl + id + fileEnding;
       let captured = false;
@@ -102,6 +102,7 @@ export class PokemonService {
   }
 
   public removePokemon(): void {
+    this._listOfPokemon = [];
     PokemonStorageUtil.pokemonStorageRemove(StorageKeys.Pokemon);
   }
 }
