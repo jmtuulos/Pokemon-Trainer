@@ -1,0 +1,7 @@
+<button
+  (click)="onCatchClick()"
+  mat-flat-button
+  [color]="(inCollection) ? 'warn' : 'primary'">
+    {{ inCollection ? 'release' : 'catch' }}
+  </button>
+

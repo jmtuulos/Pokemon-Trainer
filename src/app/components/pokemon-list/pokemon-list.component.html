@@ -1,0 +1,21 @@
+<ul id="pokemonList">
+  <app-pokemon-list-item
+    *ngFor="
+      let pokemon of pokemonList
+        | slice : currentPagesLowValue : currentPagesHighValue
+    "
+    [pokemon]="pokemon"
+  >
+  </app-pokemon-list-item>
+</ul>
+
+<mat-paginator
+  *ngIf="pokemonList.length > 0"
+  [length]="pokemonList.length"
+  pageSize="10"
+  (page)="onPageChanged($event)"
+  [pageSizeOptions]="[10, 20, 30]"
+  showFirstLastButtons="true"
+  class="pb-4"
+>
+</mat-paginator>

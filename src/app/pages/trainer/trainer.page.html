@@ -1,1 +1,28 @@
-<p>trainer works!</p>
+<div class="grid grid-flow-col">
+  <div id="profileInfo" class="pt-4">
+    <mat-list role="list" id="userInfo">
+      <mat-list-item role="listitem"><h1>{{user?.username}}</h1></mat-list-item>
+      <mat-list-item role="listitem"
+        ><button
+          mat-flat-button
+          color="primary"
+          (click)="navigateToCatalogue()"
+        >
+          Catch pokemon
+        </button></mat-list-item
+      >
+      <mat-list-item role="listitem"
+        ><button mat-stroked-button (click)="logOut()">
+          Log out
+        </button></mat-list-item
+      >
+    </mat-list>
+  </div>
+  <div id="pokemonCollection" class="p-4">
+    <p *ngIf="pokemons.length === 0" id="noPokemonCaughtTxt">
+      No pokemon caught
+    </p>
+    <h1 *ngIf="pokemons.length > 0">Your collection:</h1>
+    <app-pokemon-list [pokemonList]="pokemons"></app-pokemon-list>
+  </div>
+</div>

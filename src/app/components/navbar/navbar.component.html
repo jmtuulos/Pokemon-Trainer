@@ -1,0 +1,25 @@
+<ng-container *ngIf="user !== undefined">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span *ngIf="user.username !== null">{{ user.username }}</span>
+      <span *ngIf="user.username === null">Username</span>
+      <span class="example-spacer"></span>
+      <a routerLink="/catalogue" matTooltip="Go to catalogue page">
+        <mat-icon
+          class="example-icon"
+          aria-hidden="false"
+          aria-label="Example user verified icon"
+          >explore</mat-icon
+        >
+      </a>
+      <a routerLink="/trainer" matTooltip="Go to trainer page">
+        <mat-icon
+          class="example-icon"
+          aria-hidden="false"
+          aria-label="Example user verified icon"
+          >account_circle</mat-icon
+        >
+      </a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</ng-container>

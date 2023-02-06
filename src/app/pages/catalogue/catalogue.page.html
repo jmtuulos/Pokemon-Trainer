@@ -1,1 +1,6 @@
-<p>catalogue works!</p>
+<main class="container mx-auto">
+  <!-- show while loading pokemon -->
+  <p *ngIf="loading">Loading pokemon</p>
+  <h1 *ngIf="pokemonList.length > 0" class="pt-4">Catch pokemon</h1>
+  <app-pokemon-list [pokemonList]="pokemonList"></app-pokemon-list>
+</main>

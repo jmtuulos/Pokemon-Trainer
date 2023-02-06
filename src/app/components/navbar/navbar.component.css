@@ -1,0 +1,13 @@
+.example-icon {
+  padding: 0 0px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.mat-icon{
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+}

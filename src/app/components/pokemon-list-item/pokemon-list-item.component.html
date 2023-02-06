@@ -1,0 +1,21 @@
+<li *ngIf="pokemon" id="pokemonListItem">
+  <div>
+    <img
+      src="{{ pokemon.image }}"
+      id="pokemonImage"
+      alt="missing"
+      style="width: 125px"
+    />
+  </div>
+  <!-- <img class="pokeball-img" src="../assets/images/pokeball.png"/> -->
+  <p>#{{ pokemon.id }} {{ pokemon.name }}</p>
+  <app-catch-button [pokemonId]="pokemon.id"></app-catch-button>
+  <!-- <button
+  	mat-flat-button color="primary"
+  	*ngIf="!pokemon.captured">
+    Catch
+  </button>
+  <button mat-flat-button color="accent" *ngIf="pokemon.captured">
+    Caught
+  </button> -->
+</li>
