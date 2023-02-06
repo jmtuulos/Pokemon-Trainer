@@ -21,6 +21,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatListModule } from '@angular/material/list';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { CatchButtonComponent } from './components/catch-button/catch-button.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { CatchButtonComponent } from './components/catch-button/catch-button.com
     MatGridListModule,
     MatListModule,
     MatTooltipModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -11,17 +11,17 @@ import { Pokemon } from 'src/app/models/pokemon.model';
   styleUrls: ['./trainer.page.css'],
 })
 export class TrainerPage {
-
   constructor(
     private readonly userService: UserService,
-    private readonly router: Router,
+    private readonly pokemonService: PokemonService,
+    private readonly router: Router
   ) {}
 
   get pokemons(): Pokemon[] {
-    if (this.userService.user){
-      return this.userService.user.pokemons
+    if (this.userService.user) {
+      return this.userService.user.pokemons;
     }
-    return []
+    return [];
   }
 
   get user(): User | undefined {
@@ -35,6 +35,7 @@ export class TrainerPage {
   logOut(): void {
     this.userService.user = undefined;
     this.userService.logoutUser();
+    this.pokemonService.removePokemon();
     this.router.navigateByUrl('/login');
   }
 }

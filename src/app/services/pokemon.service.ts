@@ -11,7 +11,7 @@ import { Pokemon } from '../models/pokemon.model';
 import { PokemonStorageUtil } from '../utils/pokemon-storage.util';
 
 const pokeApiUrl = 'https://pokeapi.co/api/v2';
-const pokemonEndpoint = '/pokemon?limit=10&offset=0';
+const pokemonEndpoint = '/pokemon?limit=950&offset=0';
 const imgUrl =
   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/';
 const fileEnding = '.png';
@@ -86,8 +86,9 @@ export class PokemonService {
 
   public mapResultsToPokemon(data: any): void {
     for (let i = 0; i < data.length; i++) {
-      //pokemon IDs start at 1, therefore add 1
-      let id = i + 1;
+      let pokemonUrl = data[i].url;
+      const imageUrlSplit = pokemonUrl.split('/');
+      let id = imageUrlSplit[imageUrlSplit.length - 2];
       let name = data[i].name;
       let image: string = imgUrl + id + fileEnding;
       let captured = false;
@@ -97,6 +98,11 @@ export class PokemonService {
   }
 
   public pokemonById(id: number): Pokemon | undefined {
-    return this._listOfPokemon.find((pokemon: Pokemon) => pokemon.id === id)
+    return this._listOfPokemon.find((pokemon: Pokemon) => pokemon.id === id);
+  }
+
+  public removePokemon(): void {
+    this._listOfPokemon = [];
+    PokemonStorageUtil.pokemonStorageRemove(StorageKeys.Pokemon);
   }
 }
