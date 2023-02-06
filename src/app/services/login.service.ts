@@ -4,7 +4,6 @@ import { finalize, map, Observable, of, switchMap, tap } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../models/user.models';
 
-
 const { apiTrainers, apiKey } = environment
 
 @Injectable({
@@ -15,13 +14,13 @@ export class LoginService {
   public loading: boolean = false
 
   constructor(private readonly http: HttpClient) {}
+
   public login(username: string): Observable<User> {
     this.loading = true
     return this.checkUsername(username)
       .pipe(
         finalize(() => {
           this.loading = false
-          console.log("after loading: ", this.loading)
         }),
         switchMap((user: User | undefined) => {
           if (user === undefined) {
@@ -53,5 +52,4 @@ export class LoginService {
       headers
     })
   }
-
 }

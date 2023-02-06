@@ -27,6 +27,9 @@ export class CatchPokemonService {
     private readonly userService: UserService,
   ) { }
 
+  /*
+    Add/Remove pokemon from the user's collection
+  */
   public updateCollection(pokemonId: number): Observable<User>{
     if (!this.userService.user){
       throw new Error("addToCollection:: There is no user")

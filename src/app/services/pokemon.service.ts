@@ -4,7 +4,6 @@ import {
   HttpHeaders,
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, finalize, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { StorageKeys } from '../enums/storage-keys.enum';
 import { Pokemon } from '../models/pokemon.model';
@@ -46,8 +45,8 @@ export class PokemonService {
   }
 
   public fetchPokemonData(): void {
-    //If no saved data from session storage
-    //Call fetchAllPokemon from API
+    // If no saved data from session storage
+    // Call fetchAllPokemon from API
 
     let storedValue = PokemonStorageUtil.pokemonStorageRead<Pokemon[]>(
       StorageKeys.Pokemon
